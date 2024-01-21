@@ -29,9 +29,9 @@ class SecurityConfig {
         return http
             .authorizeHttpRequests {
                 it
-                    //.requestMatchers("/connect").authenticated()
+                    .requestMatchers("/connect").authenticated()
                     .requestMatchers("/signup").permitAll()
-                    .anyRequest().permitAll()
+                    .anyRequest().denyAll()
             }
             .formLogin {
                 it.loginProcessingUrl("/login")
